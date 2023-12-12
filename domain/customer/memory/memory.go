@@ -45,7 +45,14 @@ func (mr *MemoryRepo) Add(c aggregate.Customer) error {
 	return nil
 }
 
-func (r *MemoryRepo) Update(customer aggregate.Customer) error {
+func (mr *MemoryRepo) Update(c aggregate.Customer) error {
+	if _, ok := mr.customers[c.GetID()]; !ok {
+		return errors.New("error")
+	}
 
+	//
+	mr.Lock()
+	mr.customers[c.GetID()] = c
+	mr.Unlock()
 	return nil
 }
