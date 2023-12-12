@@ -29,7 +29,7 @@ func TestMemoryRepo_Get(t *testing.T) {
 	testCases := []testCase{
 		{
 			name:        "no customer by id",
-			id:          uuid.MustParse("jkskfsk"),
+			id:          uuid.MustParse("deb6840a-98bc-11ee-b9d1-0242ac120002"),
 			expectedErr: customer.ErrCustomerNotFound,
 		},
 		{
